@@ -1,19 +1,34 @@
 package com.sse.app.robot;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
-
-@Component
+//@Component
 public class Robot {
 
-	@Autowired
-	@Qualifier("ra")
+	private int age;
+	private String company;
+
+//	@Autowired
+//	@Qualifier("ra")
 	private Arm rightArm;
 
-	@Autowired
-	@Qualifier("la")
+//	@Autowired
+//	@Qualifier("la")
 	private Arm leftArm;
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public String getCompany() {
+		return company;
+	}
+
+	public void setCompany(String company) {
+		this.company = company;
+	}
 
 	public Arm getRightArm() {
 		return rightArm;

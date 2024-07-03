@@ -1,8 +1,6 @@
 package com.sse.app.robot;
 
-import org.springframework.stereotype.Component;
-
-@Component("ra")
+//@Component("ra")
 public class RightArm implements Arm {
 
 	public void info() {

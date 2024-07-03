@@ -12,8 +12,8 @@
 	<c:import url="/WEB-INF/views/sample/header.jsp"></c:import>
 
 	<div class="container mt-5">
-		<div class="row">
-			<div id="carouselExampleFade" class="carousel slide carousel-fade">
+		<div class="row justify-content-center">
+			<div id="carouselExampleFade" class="carousel slide carousel-fade col-md-6">
 				<div class="carousel-inner">
 					<div class="carousel-item active">
 						<img src="./resources/images/index/flo3.jpg" class="d-block w-100" alt="...">
