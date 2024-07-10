@@ -10,6 +10,7 @@
 		<typeAlias type="com.sse.app.members.MemberDTO" alias="MemberDTO"/>
 		<typeAlias type="com.sse.app.accounts.AccountDTO" alias="AccountDTO"/>
 		<typeAlias type="com.sse.app.accounts.AccountInfoDTO" alias="AccountInfoDTO"/>
+		<typeAlias type="com.sse.app.trades.TradeDTO" alias="TradeDTO"/>
 	</typeAliases>
 
 </configuration>

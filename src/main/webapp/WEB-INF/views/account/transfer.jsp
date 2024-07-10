@@ -20,12 +20,12 @@
 
 <div class="mb-3">
   <label for="formGroupExampleInput" class="form-label">내 잔액</label>
-  <h3>${balance.balance}</h3>
-  <input type="hidden" class="form-control" id="formGroupExampleInput" name ="balance" value="${balance.balance}">
+  <h3>${param.balance}</h3>
+  <input type="hidden" class="form-control" id="formGroupExampleInput" name ="balance" value="${param.balance}">
 </div>
 
 <div class="mb-3">
-  <input type="hidden" class="form-control" id="formGroupExampleInput" name ="bank_id" value="${balance.bank_id}">
+  <input type="hidden" class="form-control" id="formGroupExampleInput" name ="bank_id" value="${param.bank_id}">
 </div>
 
 <div class="mb-3">

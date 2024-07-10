@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+   <mapper namespace="com.sse.app.trades.TradeDAO">
+   
+   <insert id="add" parameterType="TradeDTO">
+   		INSERT INTO BANK_INFOS (BANK_ID,TIMEPOINT,DIFFERENCE,ACCOUNT_U,RESULTBALANCE)
+   		VALUES (#{bank_id},SYSDATE,#{difference},#{account_u},
+   		(SELECT BALANCE FROM BANK WHERE BANK_ID=#{bank_id})+#{difference})
+   </insert>
+   
+   <update id="update" parameterType="TradeDTO">
+   		UPDATE BANK SET BALANCE=BALANCE+#{difference} WHERE BANK_ID=#{bank_id}
+   </update>
+   
+   
+   
+   
+   </mapper>

@@ -31,23 +31,23 @@ public class AccountService {
 		return accountDAO.detail(accountDTO);
 	}
 
-	public int transfer(AccountInfoDTO accountInfoDTO) throws Exception {
-
-		AccountInfoDTO newone = new AccountInfoDTO();
-		newone = accountDAO.password(accountInfoDTO);
-
-		if (accountInfoDTO.getBank_pw().equals(newone.getBank_pw())) {
-
-			int num = accountDAO.transfer(accountInfoDTO);
-
-			if (num == 4) {
-				return 4;
-			}
-
-			return 1;
-
-		}
-		return 0;
-	}
+//	public int transfer(AccountInfoDTO accountInfoDTO) throws Exception {
+//
+//		AccountInfoDTO newone = new AccountInfoDTO();
+//		newone = accountDAO.password(accountInfoDTO);
+//
+//		if (accountInfoDTO.getBank_pw().equals(newone.getBank_pw())) {
+//
+//			int num = accountDAO.transfer(accountInfoDTO);
+//
+//			if (num == 4) {
+//				return 4;
+//			}
+//
+//			return 1;
+//
+//		}
+//		return 0;
+//	}
 
 }
