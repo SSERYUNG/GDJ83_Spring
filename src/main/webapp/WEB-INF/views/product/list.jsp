@@ -27,7 +27,7 @@
 		</tr>
 	</thead>
 	<tbody>
-			<c:forEach items="${requestScope.list}" var="ar">
+			<c:forEach items="${map.list}" var="ar">
 		<tr>
 		
 			<td>${ar.item_id}</td>
@@ -43,16 +43,18 @@
 </table>
 <nav aria-label="Page navigation example">
   <ul class="pagination">
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Previous">
+    <li class="page-item ${map.pre?'':'disabled'}">
+      <a class="page-link" href="./list?page=${map.start-1}" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
       </a>
     </li>
-    <li class="page-item"><a class="page-link" href="./list?page=1">1</a></li>
-    <li class="page-item"><a class="page-link" href="./list?page=2">2</a></li>
-    <li class="page-item"><a class="page-link" href="./list?page=3">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Next">
+    
+    <c:forEach begin="${map.start}" end="${map.end}" step="1" var="i">
+    <li class="page-item"><a class="page-link" href="./list?page=${i}">${i}</a></li>
+	</c:forEach>
+
+    <li class="page-item ${map.after?'':'disabled'}">
+      <a class="page-link" href="./list?page=${map.end+1}" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
       </a>
     </li>
