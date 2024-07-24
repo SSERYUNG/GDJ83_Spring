@@ -22,6 +22,10 @@
 
 <div class="container mt-5 justify-content-center text-center">
 
+	<div align="left">
+		<button type="button" class="btn btn-primary mb-3" id="checkdelete">선택삭제</button>
+	</div>
+
 
 	<table class="table table-hover">
 
@@ -29,7 +33,7 @@
 
 			<tr>
 				<td>
-				<input type="checkbox">
+				<input type="checkbox" id="allbox">
 				</td>
 				<td>상품명</td>
 				<td>이자율</td>
@@ -37,9 +41,9 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${list}" var="ar">
-				<tr>
-					<td><input type="checkbox"></td>
+			<c:forEach items="${list}" var="ar" varStatus="i">
+				<tr id="w{i.index}">
+					<td><input type="checkbox" class="wishcheck" data-check-delete="${ar.item_id}" data-wish-delete="w{i.index}"></td>
 					<td>${ar.item_name}</td>
 					<td>${ar.item_rate}</td>
 					<td><button type="button" class="btn btn-primary wishDelete" data-wish-delete="${ar.item_id}">X</button></td>

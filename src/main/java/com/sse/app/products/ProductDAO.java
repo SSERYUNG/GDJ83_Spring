@@ -69,4 +69,8 @@ public class ProductDAO {
 		return sqlSession.selectList(NAMESPACE + "wishList", memberDTO);
 	}
 
+	public int deleteWishList(Map<String, Object> map) throws Exception {
+		return sqlSession.delete(NAMESPACE + "deleteWishList", map);
+	}
+
 }

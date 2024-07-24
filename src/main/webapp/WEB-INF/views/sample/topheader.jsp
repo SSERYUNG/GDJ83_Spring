@@ -117,6 +117,7 @@
 						<c:if test="${not empty member}">
 							<li class="nav-item"><a class="nav-link" href="/member/mypage">🙋‍♂️ My Page</a></li>
 							<li class="nav-item"><a class="nav-link" href="/member/logout">🐾Logout</a></li>
+							<li class="nav-item"><a class="nav-link" href="/product/wishList">🧺My Cart</a></li>
 						</c:if>
 					</ul>
 		</nav>

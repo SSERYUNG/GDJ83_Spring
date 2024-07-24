@@ -100,4 +100,15 @@ public class ProductService {
 		return productDAO.wishList(memberDTO);
 	}
 
+	public int deleteWishList(Integer[] item_id, String member_id) throws Exception {
+
+		int result = 0;
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("member_id", member_id);
+		map.put("item_id", item_id);
+		result = productDAO.deleteWishList(map);
+
+		return result;
+	}
+
 }
