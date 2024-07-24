@@ -72,5 +72,9 @@
 		INSERT INTO MEMBERFILES VALUES(FILES_SEQ.NEXTVAL,#{member_id},#{fileName},#{oriName})
 	</insert>
 	
+	<select id="search" parameterType="MemberDTO" resultType="MemberDTO">
+		SELECT * FROM MEMBERS WHERE MEMBER_ID = #{member_id}
+	</select>
+	
    
    </mapper>

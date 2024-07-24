@@ -42,8 +42,8 @@
 		</thead>
 		<tbody>
 			<c:forEach items="${list}" var="ar" varStatus="i">
-				<tr id="w{i.index}">
-					<td><input type="checkbox" class="wishcheck" data-check-delete="${ar.item_id}" data-wish-delete="w{i.index}"></td>
+				<tr id="w${i.index}">
+					<td><input type="checkbox" class="wishcheck" data-check-delete="${ar.item_id}" data-wish-delete="w${i.index}"></td>
 					<td>${ar.item_name}</td>
 					<td>${ar.item_rate}</td>
 					<td><button type="button" class="btn btn-primary wishDelete" data-wish-delete="${ar.item_id}">X</button></td>

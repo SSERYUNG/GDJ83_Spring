@@ -82,4 +82,8 @@ public class MemberService {
 		return memberDAO.detail(memberDTO);
 	}
 
+	public MemberDTO search(MemberDTO memberDTO) throws Exception {
+		return memberDAO.search(memberDTO);
+	}
+
 }

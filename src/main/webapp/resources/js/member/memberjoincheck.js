@@ -17,6 +17,26 @@ const frm = document.getElementById("frm");
 
 const pwcheck = document.getElementById("passwordCheck");
 
+const iderror = document.getElementById("iderror");
+
+id.value=""
+iderror.innerHTML=""
+
+id.addEventListener("blur",()=>{
+    fetch("./search?member_id="+id.value,{
+        method:"GET"
+    }).then((r)=>{return r.text()})
+    .then((r)=>{
+        r=r.trim();
+        if(r>0){
+            id.value=""
+            iderror.innerHTML="이미 있는 ID입니다"
+        }else{
+            iderror.innerHTML=""
+        }
+      })
+})
+
 
 btn.addEventListener("click",function(){
     let finish =0;

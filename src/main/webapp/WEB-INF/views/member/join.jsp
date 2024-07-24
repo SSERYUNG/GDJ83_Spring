@@ -20,6 +20,7 @@
     <div>
       <label for="inputID" class="form-label">ID</label>
       <input type="text" class="form-control" id="inputId" name="member_id">
+      <div id="iderror"></div>
     </div>
     <div class="col-md-6">
       <label for="inputPassword" class="form-label">Password</label>

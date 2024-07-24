@@ -40,4 +40,8 @@ public class MemberDAO {
 		return sqlSession.insert(NAMESPACE + "joinFile", memberFileDTO);
 	}
 
+	public MemberDTO search(MemberDTO memberDTO) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + "search", memberDTO);
+	}
+
 }

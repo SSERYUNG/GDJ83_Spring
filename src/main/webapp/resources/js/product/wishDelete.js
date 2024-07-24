@@ -58,7 +58,7 @@ checkdelete.addEventListener("click",()=>{
           e.push(c.getAttribute("data-wish-delete"));
         }
     }
-
+    console.log(e)
     url = url.substring(0,url.length-1);
 
     fetch(url,{
