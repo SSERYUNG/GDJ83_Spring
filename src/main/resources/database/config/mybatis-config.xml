@@ -21,6 +21,9 @@
 		<typeAlias type="com.sse.app.boards.notices.NoticeFileDTO" alias="NoticeFileDTO"/>
 		<typeAlias type="com.sse.app.boards.qnas.QnaFileDTO" alias="QnaFileDTO"/>
 		<typeAlias type="com.sse.app.boards.BoardFileDTO" alias="BoardFileDTO"/>
+		<typeAlias type="com.sse.app.boards.CommentDTO" alias="CommentDTO"/>
+		<typeAlias type="com.sse.app.products.ProductCommentDTO" alias="ProductCommentDTO"/>
+		<typeAlias type="com.sse.app.util.ProductCommentPager" alias="ProductCommentPager"/>
 	</typeAliases>
 
 </configuration>

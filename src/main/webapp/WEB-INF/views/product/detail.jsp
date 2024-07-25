@@ -51,11 +51,58 @@
 	</c:forEach>
 </div>
 
+<!-- 댓글 -->
+
+<div align="left">
+	<!-- <textarea id="commentContents">
+
+	</textarea>
+
+	<button id="commentButton">댓글달기</button> -->
+
+	<!-- Button trigger modal -->
+	<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#commentModal">
+		댓글 입력
+  	</button>
+
+	<!-- 댓글 목록 -->
+	<div id="commentList">
+
+	</div>
+
+	<!-- 댓글 입력 모달창 -->
+	<div>
+		<div class="modal fade" id="commentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="exampleModalLabel">댓글😸</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="form-floating">
+						<textarea class="form-control" placeholder="Leave a comment here" id="commentContents"></textarea>
+					  </div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="commentClose">닫기</button>
+					<button type="button" class="btn btn-primary" id="commentButton" data-item-id="${dto.item_id}">댓글입력</button>
+				</div>
+			</div>
+			</div>
+		</div>
+	</div>
+
+
 </div>
 
-<div class="container">
 
-<div align="right">
+</div>
+
+
+<div class="container">
+	
+	<div align="right">
 <div class="mb-2">
 
 	<a href="/account/add?item_id=${dto.item_id}"><button class="btn btn-primary">상품가입</button></a>
@@ -94,5 +141,6 @@
 
 <c:import url="/WEB-INF/views/sample/footer.jsp"></c:import>
 <script src="/resources/js/product/wish.js"></script>
+<script src="/resources/js/commons/comment.js"></script>
 </body>
 </html>
