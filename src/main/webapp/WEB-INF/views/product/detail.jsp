@@ -61,7 +61,7 @@
 	<button id="commentButton">댓글달기</button> -->
 
 	<!-- Button trigger modal -->
-	<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#commentModal">
+	<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#commentModal" id="openModal">
 		댓글 입력
   	</button>
 

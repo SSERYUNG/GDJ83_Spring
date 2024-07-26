@@ -7,15 +7,15 @@
 
 	<table class="table table-hover">
 		<tbody>
-			<c:forEach items="${list}" var="ar">
+			<c:forEach items="${list}" var="ar" varStatus="i">
 				<tr>
 					<td>🌱${ar.boardWriter}</td>
 					<td>${ar.createDate}</td>
-					<td>${ar.boardContents}</td>
+					<td id="con${i.index}">${ar.boardContents}</td>
 					<td>
 						<c:if test="${ar.boardWriter eq member.member_id}">
 							<button type="button" class="deletecommentbtn" data-comment-num="${ar.boardNum}">X</button>
-							<button type="button" class="updatecommentbtn" data-comment-num="${ar.boardNum}">댓글수정</button>
+							<button type="button" class="ups" data-comment-num="${ar.boardNum}" data-comment-content="con${i.index}" data-bs-toggle="modal" data-bs-target="#commentModal">댓글수정</button>
 						</c:if>
 					</td>
 				</tr>

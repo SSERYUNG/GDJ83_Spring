@@ -2,6 +2,7 @@ const commentButton = document.getElementById("commentButton");
 const commentContents = document.getElementById("commentContents");
 const commentClose = document.getElementById("commentClose");
 const commentList = document.getElementById("commentList");
+const openModal = document.getElementById("openModal");
 
 getList(1);
 
@@ -33,27 +34,64 @@ commentList.addEventListener("click",function(e){
 
     }
 
-    if(e.target.classList.contains("updatecommentbtn")){
-        alert("수정버튼이라네")
+    if(e.target.classList.contains("ups")){
+        flag=false;
+        comnum = e.target.getAttribute("data-comment-num")
+        let c = e.target.getAttribute("data-comment-content")
+        c= document.getElementById(c).innerHTML;
+        commentContents.value=c
+        commentButton.innerHTML="댓글수정"
     }
 })
 
 commentButton.addEventListener("click",()=>{
-    commentClose.click();
+
     let contents = commentContents.value
+
+    if(contents==null || contents==""){
+        alert("댓글을 입력하세요")
+        return;
+    }
+
     let itemid = commentButton.getAttribute("data-item-id")
-    fetch("./commentAdd",{
+
+    let url="commentAdd"
+    
+    const form = new FormData();
+    form.append("boardContents",contents);
+    form.append("item_id",itemid);
+    form.append("boardNum",comnum);
+
+    
+    let msg ="댓글추가 성공"
+
+    if(!flag){
+        url="commentUpdate";
+        msg ="댓글수정 성공"
+    }
+
+    commentClose.click();
+
+    fetch(url,{
         method:"POST",
-        headers : {"Content-type":"application/x-www-form-urlencoded"},
-        body:"boardContents="+contents+"&item_id="+itemid
+        body:form
     }).then((r)=>{return r.text()})
       .then((r)=>{
         r=r.trim()
         if(r>0){
-            alert("댓글 추가 성공")
+            alert(msg)
             getList(1);
         }
       })
 
     commentContents.value=""
+})
+
+let flag = true;
+let comnum=0;
+
+openModal.addEventListener("click",()=>{
+    flag=true;
+    commentButton.innerHTML="댓글등록"
+    commentContents.value="";
 })

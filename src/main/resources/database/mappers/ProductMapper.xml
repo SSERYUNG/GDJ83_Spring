@@ -147,5 +147,9 @@
 		DELETE COMMENTS WHERE BOARDNUM=#{boardNum}
 	</delete>
 	
+	
+	<update id="commentUpdate" parameterType="ProductCommentDTO">
+		UPDATE COMMENTS SET BOARDCONTENTS=#{boardContents} WHERE BOARDNUM=#{boardNum}
+	</update>
 
    </mapper>

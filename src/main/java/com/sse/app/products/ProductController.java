@@ -45,11 +45,20 @@ public class ProductController {
 	@GetMapping("deleteComment")
 	public String deleteComment(ProductCommentDTO productCommentDTO, Model model) throws Exception {
 
-		System.out.println(productCommentDTO.getBoardNum());
 		int result = productService.deleteComment(productCommentDTO);
 		model.addAttribute("msg", result);
 
 		return "commons/result";
+	}
+
+	@PostMapping("commentUpdate")
+	public String commentUpdate(ProductCommentDTO productCommentDTO, Model model) throws Exception {
+
+		int result = productService.commentUpdate(productCommentDTO);
+		model.addAttribute("msg", result);
+
+		return "commons/result";
+
 	}
 
 	@RequestMapping(value = "list", method = RequestMethod.GET)
@@ -65,8 +74,6 @@ public class ProductController {
 	@RequestMapping(value = "detail", method = RequestMethod.GET)
 	public void getDetail(Model model, ProductDTO productDTO) throws Exception {
 
-		System.out.println("detail");
-
 		productDTO = productService.getDetail(productDTO);
 		model.addAttribute("dto", productDTO);
 
@@ -74,14 +81,12 @@ public class ProductController {
 
 	@RequestMapping(value = "add", method = RequestMethod.GET)
 	public void addInfo() {
-		System.out.println("add페이지 도착");
 
 	}
 
 	@RequestMapping(value = "add", method = RequestMethod.POST)
 	public String addInfo2(Model model, ProductDTO productDTO, MultipartFile[] files, HttpSession session)
 			throws Exception {
-		System.out.println("제출");
 
 		int num = productService.addInfo(productDTO, files, session);
 		String url = "";
@@ -97,7 +102,6 @@ public class ProductController {
 
 	@RequestMapping(value = "delete", method = RequestMethod.GET)
 	public String deleteInfo(Model model, ProductDTO productDTO) {
-		System.out.println("삭제");
 
 		int num = productService.deleteInfo(productDTO);
 		String url = "";
@@ -112,7 +116,6 @@ public class ProductController {
 
 	@RequestMapping(value = "update", method = RequestMethod.GET)
 	public void updateInfo(Model model, ProductDTO productDTO) throws Exception {
-		System.out.println("수정");
 
 		productDTO = productService.getDetail(productDTO);
 		model.addAttribute("dto", productDTO);
