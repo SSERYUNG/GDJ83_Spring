@@ -29,7 +29,7 @@ add.addEventListener("click",function(){
     
     let input = document.createElement("input");
     input.type="file";
-    input.name="files";
+    input.name="attach";
     input.classList.add("form-control");
     parent.append(input);
     

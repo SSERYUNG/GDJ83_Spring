@@ -7,9 +7,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="/WEB-INF/views/sample/header_css.jsp"></c:import>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body style="background-image: url('/resources/images/background-img.png')">
 <c:import url="/WEB-INF/views/sample/topheader.jsp"></c:import>
+<c:import url="/WEB-INF/views/sample/summer.jsp"></c:import>
 
 <div class = "justify-content-center text-center mt-3 mb-3">
 
@@ -26,7 +28,7 @@
   </div>
   <div class="mb-3">
     <label for="formGroupExampleInput" class="form-label">상품설명</label>
-    <input type="text" class="form-control" id="formGroupExampleInput" name = "item_detail">
+    <textarea rows="" cols="" name = "item_detail" id="productDetail"></textarea>
   </div>
   <div class="mb-3">
     <label for="formGroupExampleInput" class="form-label">이자율</label>
@@ -40,7 +42,10 @@
   <div id="result">
 
   </div>
-  <button type = "submit" class="btn btn-primary mt-3">추가하기</button>
+  
+   <div class="col-12">
+    <button type="submit" class="btn btn-primary" id="add">추가하기</button>
+  </div>
   </form>
   </div>
 
@@ -54,6 +59,7 @@
 
 <script>
     setMax(5);
+    $("#productDetail").summernote();
 </script>
 
 </html>

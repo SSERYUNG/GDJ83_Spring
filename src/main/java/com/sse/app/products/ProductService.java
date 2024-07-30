@@ -41,14 +41,14 @@ public class ProductService {
 
 	}
 
-	public int addInfo(ProductDTO productDTO, MultipartFile[] files, HttpSession session) throws Exception {
+	public int addInfo(ProductDTO productDTO, MultipartFile[] attach, HttpSession session) throws Exception {
 
 		Integer num = productDAO.getNum();
 		productDTO.setItem_id(num);
 
 		int result = productDAO.addInfo(productDTO);
 
-		if (files == null) {
+		if (attach == null) {
 			return result;
 		}
 
@@ -58,7 +58,7 @@ public class ProductService {
 		System.out.println(path);
 
 //		2.저장할 파일명 생성
-		for (MultipartFile f : files) {
+		for (MultipartFile f : attach) {
 			if (f.isEmpty()) {
 				continue;
 			}

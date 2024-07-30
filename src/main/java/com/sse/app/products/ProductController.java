@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -85,10 +86,10 @@ public class ProductController {
 	}
 
 	@RequestMapping(value = "add", method = RequestMethod.POST)
-	public String addInfo2(Model model, ProductDTO productDTO, MultipartFile[] files, HttpSession session)
+	public String addInfo2(Model model, ProductDTO productDTO, MultipartFile[] attach, HttpSession session)
 			throws Exception {
 
-		int num = productService.addInfo(productDTO, files, session);
+		int num = productService.addInfo(productDTO, attach, session);
 		String url = "";
 
 		if (num > 0) {
@@ -162,5 +163,10 @@ public class ProductController {
 		model.addAttribute("msg", result);
 
 		return "commons/result";
+	}
+	
+	@ExceptionHandler(Exception.class)
+	public void exceptionHandler() {
+		
 	}
 }
