@@ -1,6 +1,8 @@
 package com.sse.app.boards.qnas;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -100,6 +103,21 @@ public class QnaController {
 		fileDTO = qnaService.fileDetail(fileDTO);
 		model.addAttribute("file", fileDTO);
 		return "fileDown";
+	}
+	
+//	컨텐츠 내의 이미지 처리하는 방법
+	@PostMapping("uploadContentImage")
+	@ResponseBody
+	public Map<String, String> uploadContentImage(MultipartFile upload,Model model) throws Exception{
+//		서비스로 보내서 파일을 서버의 하드디스크에 저장하고, 경로와 파일명을 리턴으로 받음
+		System.out.println(upload.getOriginalFilename());
+		System.out.println(upload.getSize());
+		String path ="/resources/images/index/img1.png";
+		
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("url", path);
+
+		return map;
 	}
 
 }

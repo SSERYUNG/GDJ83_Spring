@@ -7,6 +7,18 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="/WEB-INF/views/sample/header_css.jsp"></c:import>
+<style>
+	.ck.ck-editor{
+	   max-width: 1000px;
+  }
+  .ck-editor__editable {
+     min-height: 400px;
+     max-height: 600px;
+  }
+  .ck-content { 
+	  font-size: 12px; 
+	 }
+</style>
 </head>
 <body style="background-image: url('/resources/images/background-img.png')">
 
@@ -39,7 +51,7 @@
 				</div>
 				<div class="mb-3">
 				  <label for="exampleFormControlTextarea1" class="form-label">글내용</label>
-				  <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" name="boardContents"></textarea>
+				  <textarea class="form-control" id="editor" rows="6" name="boardContents"></textarea>
 				</div>
 				
 				  <div class="col-12">
@@ -71,7 +83,7 @@
 				</div>
 				<div class="mb-3">
 				  <label for="exampleFormControlTextarea1" class="form-label">글내용</label>
-				  <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" name="boardContents">${dto.boardContents}</textarea>
+				  <textarea class="form-control" id="editor" rows="6" name="boardContents">${dto.boardContents}</textarea>
 				</div>
 				<div class="col-8 mt-3">
 				  <button type="submit" class="btn btn-primary">수정하기</button>
@@ -84,8 +96,26 @@
 
 
 <c:import url="/WEB-INF/views/sample/footer.jsp"></c:import>
+<script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+<script type="text/javascript" src="/resources/js/commons/ckeditor.js"></script>
 <script type="text/javascript" src="/resources/js/commons/files.js"></script>
 <script>
-    setMax(5);
+   setMax(5)
+    
+	ClassicEditor.create( 
+		document.getElementById( 'editor' ), {
+			extraPlugins: [MyCustomUploadAdapterPlugin]
+       },
+	   
+     )
+	 .then(editor=>{
+		window.editor=editor
+	 })
+	 
+	 .catch(error=>{
+			console.log('error')
+	 });	
+    
 </script>
+
 </html>
